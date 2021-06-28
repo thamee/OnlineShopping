@@ -4,31 +4,39 @@
         <div class="heading-4">
           <i class="pi pi-video" style="font-size: 2rem"></i>Register
         </div>
+        <div class="row">
+          <div class="col-sm-12" *ngFor="let responseError of errors" >
+            <small  id="passwordHelp" class="text-danger">
+              {{responseError}}
+            </small>      
+          </div>
+        </div>
         <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Email</label>
               <input  [(ngModel)]="form.email" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
-              <span *ngIf="error.name.length>0">{{error.name}}</span>
+              <div class="col-sm-12" *ngIf="error.name.length>0">
+                <small id="passwordHelp" class="text-danger">
+                  Username is required
+                </small>      
+              </div>
             </div>
           
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Password</label>
                 <input  [(ngModel)]="form.password" type="password" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
-               
+                <div class="col-sm-12" *ngIf="error.password.length>0">
+                  <small id="passwordHelp" class="text-danger">
+                    Password is required
+                  </small>      
+                </div>
               </div>
           
            <div class="row">
                <div class="col 10">
                 <button (click)="Register()" type="submit" class="btn btn-primary">Submit</button>
                </div>
-               <div class="col sm 2">
-                <h5 id="product-caption">
-                    <a
-                    [href]="'/register'"
-                      >Register</a
-                    >
-                  </h5>
-            </div>
+             
            </div>
           
            
