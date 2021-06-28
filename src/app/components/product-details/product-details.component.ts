@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { SalesProduct } from 'src/app/models/sales-product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -15,6 +16,8 @@ export class ProductDetailsComponent implements OnInit {
     private router: Router
   ) {}
   product!: Product;
+  sales!: SalesProduct;
+
   quantity=1;
   ngOnInit(): void {
     this.getProductDetail();
@@ -28,4 +31,13 @@ export class ProductDetailsComponent implements OnInit {
         })
     );
   }
+  addToCart(){
+    this.productService
+      .addSales(this.product,this.quantity)
+      .subscribe(() => {
+        this.router.navigateByUrl(`/`);
+       
+ 
+  });
+}
 }

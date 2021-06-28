@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product';
+import { SalesProduct } from '../models/sales-product';
 @Injectable({
   providedIn: 'root'
 })
@@ -58,5 +59,15 @@ getProduct(Id:string|null):any {
   let reponse=this.http.delete(`${this.baseUrl}/products/${Id}`);
   return reponse;
  }
+
+ addSales(product:Product,quantity:number):any {
+  let reponse=this.http.post(`${this.baseUrl}/sales`,{
+    productId:product.id,
+    quantity:quantity
+  
+
+  });
+  return reponse;
+}
 
 }
