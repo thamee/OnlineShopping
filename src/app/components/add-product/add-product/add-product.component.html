@@ -5,21 +5,42 @@
         <div class="heading-4">
           <i class="pi pi-video" style="font-size: 2rem"></i> Add Product
         </div>
+        <div class="row">
+          <div class="col-sm-12" *ngFor="let responseError of errors" >
+            <small  id="passwordHelp" class="text-danger">
+              {{responseError}}
+            </small>      
+          </div>
+        </div>
         <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Name</label>
               <input  [(ngModel)]="form.name" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
-              <span *ngIf="error.name.length>0">{{error.name}}</span>
+              <div class="col-sm-12" *ngIf="error.name.length>0">
+                <small id="passwordHelp" class="text-danger">
+                  Name is required
+                </small>      
+              </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Model</label>
                 <input  [(ngModel)]="form.model" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="model">
+                <div class="col-sm-12" *ngIf="error.model.length>0">
+                  <small id="passwordHelp" class="text-danger">
+                    Model is required
+                  </small>      
+                </div>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Category</label>
                 <select  class="form-control" id="exampleFormControlSelect1" [(ngModel)]="form.category" name="category">
                     <option *ngFor="let c of categories" [ngValue]="c.id">{{c.name}}</option>
                   </select>
+                  <div class="col-sm-12" *ngIf="error.category.length>0">
+                    <small id="passwordHelp" class="text-danger">
+                      Category is required
+                    </small>      
+                  </div>
                
               </div>
             <div class="form-group">
@@ -29,10 +50,20 @@
             <div class="form-group">
                 <label for="exampleInputPassword1">Color</label>
                 <input  [(ngModel)]="form.color" type="text" class="form-control" id="exampleInputPassword1" name="color">
+                <div class="col-sm-12" *ngIf="error.color.length>0">
+                  <small id="passwordHelp" class="text-danger">
+                    Color is required
+                  </small>      
+                </div>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">is Out of Stock</label>
                 <input  [(ngModel)]="form.isOutOfStock" type="checkbox" class="form-control" id="exampleInputPassword1" name="price">
+                <div class="col-sm-12" *ngIf="error.price.length>0">
+                  <small id="passwordHelp" class="text-danger">
+                    Price is required
+                  </small>      
+                </div>
               </div>
             <button (click)="formSubmit()" type="submit" class="btn btn-primary">Submit</button>
           </form>

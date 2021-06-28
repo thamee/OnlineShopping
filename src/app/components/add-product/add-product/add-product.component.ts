@@ -12,11 +12,14 @@ export class AddProductComponent implements OnInit {
   
   constructor(private productService: ProductService) { }
   categories!: MasterData[];
-  form=new Product()
-
+  form=new Product();
+  errors!:[];
   error = {
   name: '',
-  password: null
+  category:'',
+  color:'',
+  model:'',
+  price:'',
 };  
 
   ngOnInit(): void {
@@ -32,6 +35,11 @@ formSubmit() {
     this.productService.addProduct(this.form).subscribe(() => {
       this.reset()
      
+  },(error:any)=>{
+    debugger
+    if(error && error.error&& error.error.errors)      {
+      this.errors=error.error.errors
+    }
   });
   }
 }
@@ -44,7 +52,24 @@ validate(): boolean {
   if (!this.form.name || this.form.name.length <=0) {
     this.error.name = "Name is required";
     return false;
-  } else { this.error.name = ''; }
+  } 
+  else if (!this.form.category) {
+    this.error.category = "Please select a Category";
+    return false;
+  }
+  else if (!this.form.model || this.form.model.length <=0) {
+    this.error.model = "Model is required";
+    return false;
+  }
+  else if (!this.form.color || this.form.color.length <=0) {
+    this.error.color = "Color is required";
+    return false;
+  }
+  else if (!this.form.price || this.form.price <=0) {
+    this.error.price = "Price should be greater than 0";
+    return false;
+  }
+  else { this.error.name = ''; this.error.color='';}
 
  
   return true;
