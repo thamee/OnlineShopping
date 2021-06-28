@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+  <div class="page-padding">
+    <div class="page-content">
+      <div class="content-body">
+        <div class="container">
+ <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor="let head of productLables" scope="col">{{head}} </th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr mdbTableCol *ngFor="let product of products">
+        <td>{{product.name}}</td>
+        <td>{{product.category.name}}</td>
+        <td>{{product.model}}</td>
+        <td>{{product.color}}</td>
+        <td>{{product.price}}</td>
+        <td><button (click)="editProduct(product.id)" type="submit" class="btn btn-primary">Edit</button></td>
+        <td><button (click)="deleteProduct(product.id)" type="submit" class="btn btn-primary">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  </div>
+  </div>
+  

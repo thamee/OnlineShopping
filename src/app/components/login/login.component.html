@@ -1,0 +1,39 @@
+<div class="page-padding">
+    <div class="loginPage">
+      <div class="content-body">
+        <div class="heading-4">
+          <i class="pi pi-video" style="font-size: 2rem"></i>Login
+        </div>
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">User Name</label>
+              <input  [(ngModel)]="form.email" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
+              <span *ngIf="error.name.length>0">{{error.name}}</span>
+            </div>
+          
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Password</label>
+                <input  [(ngModel)]="form.password" type="password" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
+               
+              </div>
+          
+           <div class="row">
+               <div class="col 10">
+                <button (click)="Login()" type="submit" class="btn btn-primary">Submit</button>
+               </div>
+               <div class="col sm 2">
+                <h5 id="product-caption">
+                    <a
+                    [href]="'/register'"
+                      >Register</a
+                    >
+                  </h5>
+            </div>
+           </div>
+          
+           
+          </form>
+      </div>
+    </div>
+  </div>
+  

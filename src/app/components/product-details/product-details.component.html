@@ -1,0 +1,81 @@
+<app-menu></app-menu>
+<div class="page-padding">
+  <div class="page-content login">
+    <div class="content-body">
+      <div class="container" *ngIf="product">
+        <div class="row">
+          <div class="col-md-4">
+            <div
+              id="slideshow_product"
+              class="owl-carousel owl-theme"
+              style="opacity: 1; display: block"
+            >
+              <figure class="figure">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                  class="figure-img img-fluid rounded"
+                  alt="A generic square placeholder image with rounded corners in a figure."
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h1 class="text-left product-title">{{product.name}}</h1>
+            <ul class="list-unstyled">
+              <li>
+                <h2 class="text-left product-price" style="font-size: 24px">
+                  Rs {{product.price}}
+                </h2>
+              </li>
+            </ul>
+            <ul class="list-unstyled">
+              <li><h3>Category:{{product.category.name}}</h3></li>
+              <li>
+                <h3>Availability: <span class="">{{product.isOutOfStock?"Out Of Stock":"In Stock"}}</span></h3>
+              </li>
+              <li>
+                <h3>Color: <span class="">{{product.color}}</span></h3>
+              </li>
+              <li>
+                <h3>Model: <span class="">{{product.model}}</span></h3>
+              </li>
+            </ul>
+
+            <div id="product">
+              <div class="form-group">
+                <h3 class="control-label" for="input-quantity">Qty</h3>
+
+                <div class="qty">
+                  <span (click)="quantity=quantity-1" class="minus qty-span">-</span>
+                  <input
+                    type="number"
+                    [(ngModel)]="quantity"
+                    min="1"
+                    name="quantity"
+                    size="2"
+                    id="input-quantity"
+                    class="input-qnty count"
+                    disabled=""
+                  />
+                  <span (click)="quantity=quantity+1" class="plus qty-span">+</span>
+                </div>
+
+                <input type="hidden" name="product_id" value="5795" />
+                <br />
+                <button
+                  type="button"
+                  id="button-cart"
+                  data-loading-text="Loading..."
+                  class="btn btn-lg btn-block btn-add-to-cart float-left"
+                >
+                  ADD TO CART
+                </button>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

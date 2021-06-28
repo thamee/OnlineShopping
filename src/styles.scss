@@ -1,0 +1,258 @@
+.page-padding {
+  padding: 0 60px;
+
+  .page-content {
+    max-width: 1800px;
+    padding: 38px 0 80px;
+    margin: 0 auto;
+   
+
+    .content-body {
+      padding: 30px 50px;
+      background: #eef2fc;
+      min-height: 300px;
+      border-radius: 4px;
+      position: relative;
+    }
+  }
+  .loginPage{
+    max-width: 500px;
+    margin-top: 174px;
+    padding: 38px 0 80px;
+    margin: 0 auto;
+   
+
+    .content-body {
+      padding: 30px 50px;
+      background: #eef2fc;
+      min-height: 300px;
+      border-radius: 4px;
+      position: relative;
+    }
+  }
+}
+
+.heading-4 {
+  font-family: "Proxima Nova Lt", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #de2020;
+  margin: -5px -50px 40px;
+  padding: 0 50px 20px;
+  border-bottom: 1px solid #ededed;
+}
+
+.heading-3 {
+  font-family: "Proxima Nova Lt", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1a0c67;
+  margin: -5px 34px 40px;
+  padding: 0 50px 20px;
+  border-bottom: 1px solid #ededed;
+}
+
+.label {
+  font-family: "Proxima Nova Lt", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: black;
+  margin: -5px 34px 40px;
+  padding: 0 50px 20px;
+  border-bottom: 1px solid #ededed;
+}
+
+.home {
+  font-family: "Proxima Nova Lt", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #de2020;
+  margin: -5px -50px 40px;
+  padding: 0 50px 20px;
+  float: right;
+  cursor: pointer;
+  border-bottom: 1px solid #ededed;
+}
+
+.action-button {
+  background: #de2020 !important;
+}
+.status {
+  background: green !important;
+}
+
+.productImage {
+  height: 300px;
+  width: 300px;
+  padding: 20px !important;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product-thumb {
+  /* border: 1px solid #ddd; */
+  margin-bottom: 20px;
+  overflow: auto;
+  .caption {
+    padding: 0 20px;
+    min-height: auto;
+    text-align: center;
+  }
+}
+
+.carousel {
+  position: relative;
+}
+h5 {
+  font-size: 16px;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  .active {
+    left: 0;
+  }
+}
+.product-thumb .button-group {
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  overflow: auto;
+  button {
+    width:100%;
+    border: none;
+    display: inline-block;
+    float: left;
+    background-color: #eee;
+    color: #888;
+    height: 40px;
+    line-height: 38px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    + button {
+      width: 20%;
+      border-left: 1px solid #ddd;
+  }
+}
+}
+
+.owl-carousel {
+  margin: 0 0 20px;
+  background: #fff;
+  direction: ltr !important;
+  z-index: 1;
+}
+
+.product-title {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+#product > div.form-group {
+  margin-bottom: 30px;
+}
+.qty .minus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial,sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-clip: padding-box;
+  background-color: #0b0b0b;
+}
+.qty-span {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.qty .input-qnty {
+  /* width: 100px; */
+  color: #000000;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 0 2px;
+  min-width: 35px;
+  text-align: center;
+  border: 0;
+  width: 2%;
+}
+
+.qty .plus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial,sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #0b0b0b;
+}
+.btn-add-to-cart {
+  width: 48%;
+  border-radius: 0;
+  background-color: #212121 !important;
+  color: #fff !important;
+  font-weight: bold;
+  float: left;
+  font-size: 18px;
+}
+.btn-lg {
+  padding: 10px 16px;
+  font-size: 15px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+#logo {
+  margin: 0 0 10px 0;
+}
+.container {
+  width: 90%;
+}
+.dropdown, .dropup {
+  position: relative;
+}
+.menu{
+  padding: 57px;
+}
+.cart-badge {
+  background: #56638b;
+  position: absolute !important;
+  top: -37% !important;
+}
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #777;
+  border-radius: 10px;
+}
