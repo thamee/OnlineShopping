@@ -14,7 +14,8 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RegisterComponent } from './components/register/register.component';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from '../app/auth/token.interceptor';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -41,7 +42,13 @@ export function tokenGetter() {
       },
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
