@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import { MasterData } from 'src/app/models/master-data';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -10,7 +12,13 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AddProductComponent implements OnInit {
   
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,private authService:AuthService,private router: Router) { 
+    const role=authService.getUserRole();
+    if(role!="Sellers"){
+      this.router.navigateByUrl(`/`);
+
+    }
+  }
   categories!: MasterData[];
   form=new Product();
   errors!:[];

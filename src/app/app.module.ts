@@ -16,6 +16,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../app/auth/token.interceptor';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -31,7 +32,8 @@ export function tokenGetter() {
     ProductDetailsComponent,
     LoginComponent,
     MenuComponent,
-    RegisterComponent
+    RegisterComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,

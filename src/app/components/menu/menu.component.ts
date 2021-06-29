@@ -9,9 +9,12 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private authService:AuthService, private router: Router) { }
-
+  constructor(private authService:AuthService, private router: Router) {
+    
+   }
+   role!:string;
   ngOnInit(): void {
+    this.role=this.authService.getUserRole();
   }
   logout(){
     this.authService.logout();

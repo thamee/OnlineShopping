@@ -70,4 +70,15 @@ getProduct(Id:string|null):any {
   return reponse;
 }
 
+
+getSales():any {
+  let reponse=this.http.get(`${this.baseUrl}/sales`);
+  return reponse;
+}
+
+conformSales():any {
+  let reponse=this.http.post(`${this.baseUrl}/order`,{});
+  return reponse;
+}
+
 }
