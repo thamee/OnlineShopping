@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddProductComponent } from './components/add-product/add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './components/home/home.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
@@ -17,6 +16,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../app/auth/token.interceptor';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -33,11 +36,13 @@ export function tokenGetter() {
     LoginComponent,
     MenuComponent,
     RegisterComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    
   ],
   imports: [
-    BrowserModule,HttpClientModule,
-    AppRoutingModule,FormsModule,ToastrModule,
+    BrowserModule,HttpClientModule,CommonModule,
+    AppRoutingModule,FormsModule, BrowserAnimationsModule,
+    ToastrModule.forRoot(), 
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { SalesProduct } from 'src/app/models/sales-product';
 import { ProductService } from 'src/app/services/product.service';
@@ -13,8 +14,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private actRoute: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,private toastr: ToastrService)
+   {}
   product!: Product;
   sales!: SalesProduct;
 
@@ -35,6 +36,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productService
       .addSales(this.product,this.quantity)
       .subscribe(() => {
+        this.toastr.success('!', 'Product Added To Cart!');
         this.router.navigateByUrl(`/`);
        
  

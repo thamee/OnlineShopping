@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
 import { MasterData } from 'src/app/models/master-data';
 import { Product } from 'src/app/models/product';
@@ -12,7 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AddProductComponent implements OnInit {
   
-  constructor(private productService: ProductService,private authService:AuthService,private router: Router) { 
+  constructor(private productService: ProductService,private authService:AuthService,private router: Router,private toastr: ToastrService) { 
     const role=authService.getUserRole();
     if(role!="Sellers"){
       this.router.navigateByUrl(`/`);
@@ -41,10 +42,11 @@ export class AddProductComponent implements OnInit {
 formSubmit() {
   if (this.validate()) {
     this.productService.addProduct(this.form).subscribe(() => {
+      this.toastr.success('!', 'Product Added Successfully!');
       this.reset()
      
   },(error:any)=>{
-    debugger
+    this.toastr.error('!', 'Product Added Failed!');
     if(error && error.error&& error.error.errors)      {
       this.errors=error.error.errors
     }

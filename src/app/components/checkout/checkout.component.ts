@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { SalesProduct } from 'src/app/models/sales-product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor(private productService: ProductService,private router: Router,) { }
+  constructor(private productService: ProductService,private router: Router,private toastr: ToastrService) { }
   orderedProducts!: SalesProduct[];
   productLables!:string[]
 
@@ -28,6 +29,7 @@ export class CheckoutComponent implements OnInit {
 
   addOrder(){
     this.productService.conformSales().subscribe(() => {
+      this.toastr.success('!', 'Products Ordered Successfully!');
       this.router.navigateByUrl(`/`);
      
   });

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
 import { MasterData } from 'src/app/models/master-data';
 import { Product } from 'src/app/models/product';
@@ -15,7 +16,8 @@ export class EditProductComponent implements OnInit {
     private productService: ProductService,
     private actRoute: ActivatedRoute,
     private router: Router,
-    private authService:AuthService
+    private authService:AuthService,
+    private toastr: ToastrService
   ) {
     const role=authService.getUserRole();
     if(role!="Sellers"){
@@ -26,7 +28,7 @@ export class EditProductComponent implements OnInit {
   product!: Product;
   categories !: MasterData[];
   form = new Product();
-
+  errors=[];
   error = {
     name: '',
     password: null,
@@ -57,8 +59,14 @@ export class EditProductComponent implements OnInit {
   formSubmit() {
     if (this.validate()) {
       this.productService.updateProduct(this.product).subscribe(() => {
+        this.toastr.success('!', 'Product Edited Successfully!');
         this.router.navigateByUrl(`view-product`);
-      });
+      },(error:any)=>{
+        this.toastr.error('!', 'Product Edited Failed!');
+        if(error && error.error&& error.error.errors)      {
+          this.errors=error.error.errors
+        }
+      });;
     }
   }
 
