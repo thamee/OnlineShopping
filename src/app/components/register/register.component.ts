@@ -14,12 +14,16 @@ export class RegisterComponent implements OnInit {
   constructor(private authService:AuthService, private router: Router,private toastr: ToastrService) { }
 
   form={
+    name:"",
+    address:"",
     email : "",
     password:""
   }
   error = {
-    name: '',
-    password: ''
+    email: '',
+    password: '',
+    name:"",
+    address:"",
   };  
   errors!:[];
 
@@ -29,7 +33,7 @@ export class RegisterComponent implements OnInit {
 
   Register(){
     if (this.validate()) {
-    this.authService.register(this.form.email,this.form.password).subscribe((authResponse: AuthResponce) => {
+    this.authService.register(this.form.email,this.form.password,this.form.name,this.form.address).subscribe((authResponse: AuthResponce) => {
       this.toastr.success('!', 'User Registered Successfully!');
       localStorage.setItem('token', JSON.stringify(authResponse.token));
       this.router.navigateByUrl(`/`);

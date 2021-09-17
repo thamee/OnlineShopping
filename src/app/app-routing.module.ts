@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent,canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent,canActivate: [AuthGuard]},
 ];
 
 @NgModule({

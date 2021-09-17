@@ -33,13 +33,17 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
   addToCart(){
-    this.productService
+    if(this.product.isOutOfStock){
+      this.toastr.error('!', 'Product is out of Stock!');
+    }
+    else{
+      this.productService
       .addSales(this.product,this.quantity)
       .subscribe(() => {
         this.toastr.success('!', 'Product Added To Cart!');
         this.router.navigateByUrl(`/`);
-       
- 
   });
+    }
+   
 }
 }

@@ -26,10 +26,12 @@ export class AuthService {
   public getToken(): any {
     return localStorage.getItem('token');
   }
-  public register(username: string, password: string) {
+  public register(username: string, password: string,name:string,address:string) {
     return this.http.post<any>(`${this.baseUrl}/register`, {
       email: username,
       password: password,
+      name:name,
+      address:address
     });
   }
 

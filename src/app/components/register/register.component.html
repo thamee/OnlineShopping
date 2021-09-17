@@ -12,6 +12,25 @@
           </div>
         </div>
         <form>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input  [(ngModel)]="form.name" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
+            <div class="col-sm-12" *ngIf="error.name.length>0">
+              <small id="passwordHelp" class="text-danger">
+               Name is required
+              </small>      
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Address</label>
+            <input  [(ngModel)]="form.address" type="textArea" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
+            <div class="col-sm-12" *ngIf="error.address.length>0">
+              <small id="passwordHelp" class="text-danger">
+                Address is required
+              </small>      
+            </div>
+          </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email</label>
               <input  [(ngModel)]="form.email" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
